@@ -1,3 +1,5 @@
+# frozen_string_literal: true
+
 class ApplicationController < ActionController::Base
   def log_in(user)
     session[:user_id] = user.id
@@ -14,7 +16,7 @@ class ApplicationController < ActionController::Base
       @current_user ||= User.find_by(id: user_id)
     elsif (user_id = cookies.signed[:user_id])
       user = User.find_by(id: user_id)
-      if user && user.authenticated?(cookies[:remember_token])
+      if user&.authenticated?(cookies[:remember_token])
         log_in user
         @current_user = user
       end
