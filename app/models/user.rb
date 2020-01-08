@@ -15,17 +15,17 @@ class User < ApplicationRecord
     update_attribute(:remember_token, nil)
   end
 
+  def self.new_token
+    SecureRandom.urlsafe_base64
+  end
+
+  def self.encrypt(string)
+    Digest::SHA1.hexdigest(string)
+  end
+
   private
-  
-    def self.new_token
-      SecureRandom.urlsafe_base64
-    end
 
-    def self.encrypt(string)
-      Digest::SHA1.hexdigest(string)
-    end
-
-    def create_remember_token
-      self.remember_token = User.encrypt(User.new_token)
-    end
+  def create_remember_token
+    self.remember_token = User.encrypt(User.new_token)
+  end
 end
