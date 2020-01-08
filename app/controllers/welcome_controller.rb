@@ -2,6 +2,6 @@
 
 class WelcomeController < ApplicationController
   def index
-    # code
+    @logged_in = logged_in?
   end
 end

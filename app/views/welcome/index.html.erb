@@ -1,6 +1,12 @@
-<% provide(:title, 'Commnents') %>
 <h1>header</h1>
 
-<%= link_to "Sign Up", signup_path %>
-<%= link_to "Sign In", login_path %>
+<% if @logged_in %>
+    <%= link_to 'Sign Out', logout_path, :method => :delete %>
+    <%= link_to 'Posts New', new_post_path %>
+<% else %>
+    <%= link_to "Sign Up", signup_path %>
+    <%= link_to "Sign In", login_path %>
+<%end%>
+
+<%= link_to "Posts", posts_path %>
 
