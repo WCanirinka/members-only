@@ -1,9 +1,9 @@
 <div>
   <div>
-    <%= form_for(:post, url: new_post_path) do |f| %>
+    <%= form_for(@post) do |f| %>
 
-      <%= f.label :Comment %>
-      <%= f.comment_field :comment %>
+      <%= f.label :comments %>
+      <%= f.text_field :comments %>
 
       <%= f.submit "Create Post" %>
     <% end %>
