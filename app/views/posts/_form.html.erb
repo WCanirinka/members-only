@@ -1,0 +1,12 @@
+<div>
+  <div>
+    <%= form_for(:post, url: new_post_path) do |f| %>
+
+      <%= f.label :Comment %>
+      <%= f.comment_field :comment %>
+
+      <%= f.submit "Create Post" %>
+    <% end %>
+
+  </div>
+</div>

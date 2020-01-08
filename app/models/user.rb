@@ -1,4 +1,5 @@
 class User < ApplicationRecord
+  has_many :post
   before_create :create_remember_token
   before_save { self.email = self.email.downcase }
   has_secure_password
