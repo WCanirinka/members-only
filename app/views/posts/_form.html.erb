@@ -1,0 +1,12 @@
+<div>
+  <div>
+    <%= form_for(@post) do |f| %>
+
+      <%= f.label :comments %>
+      <%= f.text_field :comments %>
+
+      <%= f.submit "Create Post" %>
+    <% end %>
+
+  </div>
+</div>
